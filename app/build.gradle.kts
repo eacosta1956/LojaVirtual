@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.hilt)
-    alias(libs.plugins.ksp)
+    alias(libs.plugins.legacy.kapt)
 }
 
 android {
@@ -52,5 +52,13 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
+    kapt(libs.hilt.compiler)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+
+    implementation(libs.coil)
+    implementation(libs.coil.network.okhttp)
 }
