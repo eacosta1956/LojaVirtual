@@ -19,7 +19,6 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.eldon.lojavirtual.R
 
-
 @AndroidEntryPoint
 class ProductsFragment : Fragment() {
 
@@ -49,6 +48,10 @@ class ProductsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.buttonBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
         configureRecyclerView()
         observeUiState()
