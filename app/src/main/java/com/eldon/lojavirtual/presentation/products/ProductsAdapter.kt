@@ -10,8 +10,9 @@ import com.eldon.lojavirtual.R
 import com.eldon.lojavirtual.databinding.ItemProductBinding
 import com.eldon.lojavirtual.domain.model.Product
 
-class ProductsAdapter :
-    ListAdapter<Product, ProductsAdapter.ProductViewHolder>(ProductDiffCallback()) {
+class ProductsAdapter(
+    private val onProductClick: (Product) -> Unit
+) : ListAdapter<Product, ProductsAdapter.ProductViewHolder>(ProductDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val binding = ItemProductBinding.inflate(
@@ -26,7 +27,7 @@ class ProductsAdapter :
         holder.bind(getItem(position))
     }
 
-    class ProductViewHolder(
+    inner class ProductViewHolder(
         private val binding: ItemProductBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
@@ -43,6 +44,10 @@ class ProductsAdapter :
             )
 
             binding.imageProduct.load(product.thumbnailUrl)
+
+            binding.root.setOnClickListener {
+                onProductClick(product)
+            }
         }
     }
 
