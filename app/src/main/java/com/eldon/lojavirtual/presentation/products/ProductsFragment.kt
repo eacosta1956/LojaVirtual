@@ -12,8 +12,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eldon.lojavirtual.databinding.FragmentProductsBinding
+import com.eldon.lojavirtual.presentation.productdetail.ProductDetailFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
+import com.eldon.lojavirtual.R
+
 
 @AndroidEntryPoint
 class ProductsFragment : Fragment() {
@@ -22,7 +27,16 @@ class ProductsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: ProductsViewModel by viewModels()
-    private val productsAdapter = ProductsAdapter()
+    private val productsAdapter = ProductsAdapter { product ->
+        val arguments = bundleOf(
+            ProductDetailFragment.PRODUCT_ID to product.id
+        )
+
+        findNavController().navigate(
+            R.id.action_productsFragment_to_productDetailFragment,
+            arguments
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

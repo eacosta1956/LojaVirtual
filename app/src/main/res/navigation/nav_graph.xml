@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
@@ -17,6 +18,21 @@
     <fragment
         android:id="@+id/productsFragment"
         android:name="com.eldon.lojavirtual.presentation.products.ProductsFragment"
-        android:label="@string/products_title" />
+        android:label="@string/products_title">
+
+        <action
+            android:id="@+id/action_productsFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.eldon.lojavirtual.presentation.productdetail.ProductDetailFragment"
+        android:label="Detalhe do produto">
+
+        <argument
+            android:name="product_id"
+            app:argType="integer" />
+    </fragment>
 
 </navigation>
