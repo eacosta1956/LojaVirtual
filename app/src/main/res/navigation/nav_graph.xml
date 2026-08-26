@@ -7,6 +7,16 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.eldon.lojavirtual.presentation.home.HomeFragment"
-        android:label="Home" />
+        android:label="Home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_productsFragment"
+            app:destination="@id/productsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="com.eldon.lojavirtual.presentation.products.ProductsFragment"
+        android:label="@string/products_title" />
 
 </navigation>

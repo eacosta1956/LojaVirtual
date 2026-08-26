@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.eldon.lojavirtual.R
 import com.eldon.lojavirtual.databinding.FragmentHomeBinding
+import androidx.navigation.fragment.findNavController
 
 class HomeFragment : Fragment() {
 
@@ -29,7 +31,9 @@ class HomeFragment : Fragment() {
 
     private fun configureClickListeners() {
         binding.buttonProducts.setOnClickListener {
-            showMessage("Produtos")
+            findNavController().navigate(
+                R.id.action_homeFragment_to_productsFragment
+            )
         }
 
         binding.buttonCarts.setOnClickListener {

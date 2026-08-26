@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">LojaVirtual</string>
+    <string name="products_title">Produtos</string>
+    <string name="try_again">Tentar novamente</string>
+    <string name="product_price">R$ %1$.2f</string>
+    <string name="product_rating">Avaliação: %1$.1f</string>
 </resources>
