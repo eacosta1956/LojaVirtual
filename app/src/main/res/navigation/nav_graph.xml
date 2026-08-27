@@ -11,6 +11,10 @@
         android:label="Home">
 
         <action
+            android:id="@+id/action_homeFragment_to_cartsFragment"
+            app:destination="@id/cartsFragment" />
+
+        <action
             android:id="@+id/action_homeFragment_to_productsFragment"
             app:destination="@id/productsFragment" />
     </fragment>
@@ -34,5 +38,10 @@
             android:name="product_id"
             app:argType="integer" />
     </fragment>
+
+    <fragment
+        android:id="@+id/cartsFragment"
+        android:name="com.eldon.lojavirtual.presentation.carts.CartsFragment"
+        android:label="Carrinhos" />
 
 </navigation>
