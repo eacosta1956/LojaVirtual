@@ -13,6 +13,11 @@
         <action
             android:id="@+id/action_homeFragment_to_productsFragment"
             app:destination="@id/productsFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_cartsFragment"
+            app:destination="@id/cartsFragment" />
+
     </fragment>
 
     <fragment
@@ -32,6 +37,25 @@
 
         <argument
             android:name="product_id"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cartsFragment"
+        android:name="com.eldon.lojavirtual.presentation.carts.CartsFragment"
+        android:label="Carrinhos" />
+
+    <action
+        android:id="@+id/action_cartsFragment_to_cartDetailFragment"
+        app:destination="@id/cartDetailFragment" />
+
+    <fragment
+        android:id="@+id/cartDetailFragment"
+        android:name="com.eldon.lojavirtual.presentation.cartdetail.CartDetailFragment"
+        android:label="Detalhe do carrinho">
+
+        <argument
+            android:name="cart_id"
             app:argType="integer" />
     </fragment>
 

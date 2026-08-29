@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/imageCartProduct"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:contentDescription="Imagem do produto"
+        android:scaleType="centerInside" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textCartProductTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textCartProductQuantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textCartProductTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -37,7 +37,9 @@ class HomeFragment : Fragment() {
         }
 
         binding.buttonCarts.setOnClickListener {
-            showMessage("Carrinho")
+            findNavController().navigate(
+                R.id.action_homeFragment_to_cartsFragment
+            )
         }
 
         binding.buttonUsers.setOnClickListener {

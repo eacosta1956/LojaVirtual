@@ -9,6 +9,7 @@ import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
+import com.eldon.lojavirtual.data.remote.CartsApiService
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -31,5 +32,11 @@ object NetworkModule {
     @Singleton
     fun provideProductsApiService(retrofit: Retrofit): ProductsApiService {
         return retrofit.create(ProductsApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCartsApiService(retrofit: Retrofit): CartsApiService {
+        return retrofit.create(CartsApiService::class.java)
     }
 }
