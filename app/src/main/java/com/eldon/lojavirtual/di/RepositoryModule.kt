@@ -9,6 +9,8 @@ import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 import com.eldon.lojavirtual.data.repository.CartRepositoryImpl
 import com.eldon.lojavirtual.domain.repository.CartRepository
+import com.eldon.lojavirtual.data.repository.UserRepositoryImpl
+import com.eldon.lojavirtual.domain.repository.UserRepository
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -25,4 +27,10 @@ abstract class RepositoryModule {
     abstract fun bindCartRepository(
         cartRepositoryImpl: CartRepositoryImpl
     ): CartRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindUserRepository(
+        userRepositoryImpl: UserRepositoryImpl
+    ): UserRepository
 }

@@ -43,7 +43,9 @@ class HomeFragment : Fragment() {
         }
 
         binding.buttonUsers.setOnClickListener {
-            showMessage("Usuários")
+            findNavController().navigate(
+                R.id.action_homeFragment_to_usersFragment
+            )
         }
 
         binding.buttonPosts.setOnClickListener {

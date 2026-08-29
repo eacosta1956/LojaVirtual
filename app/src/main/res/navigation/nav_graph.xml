@@ -18,6 +18,10 @@
             android:id="@+id/action_homeFragment_to_cartsFragment"
             app:destination="@id/cartsFragment" />
 
+        <action
+            android:id="@+id/action_homeFragment_to_usersFragment"
+            app:destination="@id/usersFragment" />
+
     </fragment>
 
     <fragment
@@ -58,5 +62,10 @@
             android:name="cart_id"
             app:argType="integer" />
     </fragment>
+
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="com.eldon.lojavirtual.presentation.users.UsersFragment"
+        android:label="Usuários" />
 
 </navigation>
