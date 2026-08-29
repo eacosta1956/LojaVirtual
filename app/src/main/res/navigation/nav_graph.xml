@@ -68,4 +68,18 @@
         android:name="com.eldon.lojavirtual.presentation.users.UsersFragment"
         android:label="Usuários" />
 
+    <action
+        android:id="@+id/action_usersFragment_to_userDetailFragment"
+        app:destination="@id/userDetailFragment" />
+
+    <fragment
+        android:id="@+id/userDetailFragment"
+        android:name="com.eldon.lojavirtual.presentation.userdetail.UserDetailFragment"
+        android:label="Detalhe do usuário">
+
+        <argument
+            android:name="user_id"
+            app:argType="integer" />
+    </fragment>
+
 </navigation>
