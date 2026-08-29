@@ -13,8 +13,11 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eldon.lojavirtual.databinding.FragmentUsersBinding
+import com.eldon.lojavirtual.presentation.userdetail.UserDetailFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import androidx.core.os.bundleOf
+import com.eldon.lojavirtual.R
 
 @AndroidEntryPoint
 class UsersFragment : Fragment() {
@@ -23,7 +26,16 @@ class UsersFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: UsersViewModel by viewModels()
-    private val usersAdapter = UsersAdapter()
+    private val usersAdapter = UsersAdapter { user ->
+        val arguments = bundleOf(
+            UserDetailFragment.USER_ID to user.id
+        )
+
+        findNavController().navigate(
+            R.id.action_usersFragment_to_userDetailFragment,
+            arguments
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

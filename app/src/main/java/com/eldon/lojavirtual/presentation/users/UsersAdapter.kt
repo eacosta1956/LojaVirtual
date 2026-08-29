@@ -9,8 +9,9 @@ import coil3.load
 import com.eldon.lojavirtual.databinding.ItemUserBinding
 import com.eldon.lojavirtual.domain.model.User
 
-class UsersAdapter :
-    ListAdapter<User, UsersAdapter.UserViewHolder>(UserDiffCallback()) {
+class UsersAdapter(
+    private val onUserClick: (User) -> Unit
+) : ListAdapter<User, UsersAdapter.UserViewHolder>(UserDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val binding = ItemUserBinding.inflate(
@@ -25,7 +26,7 @@ class UsersAdapter :
         holder.bind(getItem(position))
     }
 
-    class UserViewHolder(
+    inner class UserViewHolder(
         private val binding: ItemUserBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
@@ -34,6 +35,9 @@ class UsersAdapter :
             binding.textUserName.text = "${user.firstName} ${user.lastName}"
             binding.textUserEmail.text = user.email
             binding.textUserAge.text = "Idade: ${user.age} anos"
+            binding.root.setOnClickListener {
+                onUserClick(user)
+            }
         }
     }
 
