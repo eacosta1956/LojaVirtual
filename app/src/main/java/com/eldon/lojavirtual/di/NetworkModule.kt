@@ -11,6 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 import com.eldon.lojavirtual.data.remote.CartsApiService
 import com.eldon.lojavirtual.data.remote.UsersApiService
+import com.eldon.lojavirtual.data.remote.PostsApiService
 
 
 @Module
@@ -48,5 +49,11 @@ object NetworkModule {
         retrofit: Retrofit
     ): UsersApiService {
         return retrofit.create(UsersApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun providePostsApiService(retrofit: Retrofit): PostsApiService {
+        return retrofit.create(PostsApiService::class.java)
     }
 }

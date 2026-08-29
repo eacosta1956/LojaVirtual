@@ -11,6 +11,8 @@ import com.eldon.lojavirtual.data.repository.CartRepositoryImpl
 import com.eldon.lojavirtual.domain.repository.CartRepository
 import com.eldon.lojavirtual.data.repository.UserRepositoryImpl
 import com.eldon.lojavirtual.domain.repository.UserRepository
+import com.eldon.lojavirtual.data.repository.PostRepositoryImpl
+import com.eldon.lojavirtual.domain.repository.PostRepository
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -33,4 +35,10 @@ abstract class RepositoryModule {
     abstract fun bindUserRepository(
         userRepositoryImpl: UserRepositoryImpl
     ): UserRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindPostRepository(
+        postRepositoryImpl: PostRepositoryImpl
+    ): PostRepository
 }
