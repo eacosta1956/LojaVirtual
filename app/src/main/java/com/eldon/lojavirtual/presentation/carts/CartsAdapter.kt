@@ -9,8 +9,9 @@ import com.eldon.lojavirtual.databinding.ItemCartBinding
 import com.eldon.lojavirtual.domain.model.Cart
 import java.util.Locale
 
-class CartsAdapter :
-    ListAdapter<Cart, CartsAdapter.CartViewHolder>(CartDiffCallback()) {
+class CartsAdapter(
+    private val onCartClick: (Cart) -> Unit
+) : ListAdapter<Cart, CartsAdapter.CartViewHolder>(CartDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val binding = ItemCartBinding.inflate(
@@ -25,7 +26,7 @@ class CartsAdapter :
         holder.bind(getItem(position))
     }
 
-    class CartViewHolder(
+    inner class CartViewHolder(
         private val binding: ItemCartBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
@@ -35,10 +36,13 @@ class CartsAdapter :
             binding.textCartQuantity.text =
                 "Itens: ${cart.totalQuantity} em ${cart.totalProducts} produtos"
             binding.textCartTotal.text = String.format(
-                Locale("pt", "BR"),
+                Locale.forLanguageTag("pt-BR"),
                 "Total: R$ %.2f",
                 cart.discountedTotal
             )
+            binding.root.setOnClickListener {
+                onCartClick(cart)
+            }
         }
     }
 
