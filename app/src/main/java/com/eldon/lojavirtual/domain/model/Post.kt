@@ -1,8 +1,5 @@
 package com.eldon.lojavirtual.domain.model
 
-class Post {
-}package com.eldon.lojavirtual.domain.model
-
 data class Post(
     val id: Int,
     val title: String,
