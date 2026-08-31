@@ -49,7 +49,9 @@ class HomeFragment : Fragment() {
         }
 
         binding.buttonPosts.setOnClickListener {
-            showMessage("Postagens")
+            findNavController().navigate(
+                R.id.action_homeFragment_to_postsFragment
+            )
         }
     }
 

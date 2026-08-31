@@ -22,6 +22,10 @@
             android:id="@+id/action_homeFragment_to_usersFragment"
             app:destination="@id/usersFragment" />
 
+        <action
+            android:id="@+id/action_homeFragment_to_postsFragment"
+            app:destination="@id/postsFragment" />
+
     </fragment>
 
     <fragment
@@ -81,5 +85,10 @@
             android:name="user_id"
             app:argType="integer" />
     </fragment>
+
+    <fragment
+        android:id="@+id/postsFragment"
+        android:name="com.eldon.lojavirtual.presentation.posts.PostsFragment"
+        android:label="Postagens" />
 
 </navigation>
