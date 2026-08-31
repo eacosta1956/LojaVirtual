@@ -91,4 +91,18 @@
         android:name="com.eldon.lojavirtual.presentation.posts.PostsFragment"
         android:label="Postagens" />
 
+    <action
+        android:id="@+id/action_postsFragment_to_postDetailFragment"
+        app:destination="@id/postDetailFragment" />
+
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.eldon.lojavirtual.presentation.postdetail.PostDetailFragment"
+        android:label="Detalhe da postagem">
+
+        <argument
+            android:name="post_id"
+            app:argType="integer" />
+    </fragment>
+
 </navigation>
