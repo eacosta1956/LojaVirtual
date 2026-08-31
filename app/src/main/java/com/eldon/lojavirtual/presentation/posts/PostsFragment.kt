@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.eldon.lojavirtual.databinding.FragmentPostsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import com.eldon.lojavirtual.R
+import com.eldon.lojavirtual.presentation.postdetail.PostDetailFragment
 
 @AndroidEntryPoint
 class PostsFragment : Fragment() {
@@ -23,7 +25,16 @@ class PostsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: PostsViewModel by viewModels()
-    private val postsAdapter = PostsAdapter()
+    private val postsAdapter = PostsAdapter { post ->
+        val arguments = Bundle().apply {
+            putInt(PostDetailFragment.POST_ID, post.id)
+        }
+
+        findNavController().navigate(
+            R.id.action_postsFragment_to_postDetailFragment,
+            arguments
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
