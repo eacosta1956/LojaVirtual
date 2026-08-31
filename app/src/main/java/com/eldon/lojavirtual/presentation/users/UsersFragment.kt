@@ -16,6 +16,7 @@ import com.eldon.lojavirtual.databinding.FragmentUsersBinding
 import com.eldon.lojavirtual.presentation.userdetail.UserDetailFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import androidx.core.os.bundleOf
 import com.eldon.lojavirtual.R
 
 @AndroidEntryPoint
@@ -26,10 +27,9 @@ class UsersFragment : Fragment() {
 
     private val viewModel: UsersViewModel by viewModels()
     private val usersAdapter = UsersAdapter { user ->
-        // UsersFragment
-        val arguments = Bundle().apply {
-            putInt(UserDetailFragment.USER_ID, user.id)
-        }
+        val arguments = bundleOf(
+            UserDetailFragment.USER_ID to user.id
+        )
 
         findNavController().navigate(
             R.id.action_usersFragment_to_userDetailFragment,

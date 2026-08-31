@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.eldon.lojavirtual.databinding.FragmentCartsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import androidx.core.os.bundleOf
 import com.eldon.lojavirtual.R
 import com.eldon.lojavirtual.presentation.cartdetail.CartDetailFragment
 
@@ -27,10 +28,9 @@ class CartsFragment : Fragment() {
 
     private val viewModel: CartsViewModel by viewModels()
     private val cartsAdapter = CartsAdapter { cart ->
-        // CartsFragment
-        val arguments = Bundle().apply {
-            putInt(CartDetailFragment.CART_ID, cart.id)
-        }
+        val arguments = bundleOf(
+            CartDetailFragment.CART_ID to cart.id
+        )
 
         findNavController().navigate(
             R.id.action_cartsFragment_to_cartDetailFragment,

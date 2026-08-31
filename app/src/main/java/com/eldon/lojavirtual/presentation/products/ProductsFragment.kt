@@ -15,6 +15,7 @@ import com.eldon.lojavirtual.databinding.FragmentProductsBinding
 import com.eldon.lojavirtual.presentation.productdetail.ProductDetailFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.eldon.lojavirtual.R
 
@@ -26,10 +27,9 @@ class ProductsFragment : Fragment() {
 
     private val viewModel: ProductsViewModel by viewModels()
     private val productsAdapter = ProductsAdapter { product ->
-        // ProductsFragment
-        val arguments = Bundle().apply {
-            putInt(ProductDetailFragment.PRODUCT_ID, product.id)
-        }
+        val arguments = bundleOf(
+            ProductDetailFragment.PRODUCT_ID to product.id
+        )
 
         findNavController().navigate(
             R.id.action_productsFragment_to_productDetailFragment,
